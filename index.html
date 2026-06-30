@@ -150,24 +150,18 @@
   .skills-grid{
     position:relative;
     z-index:2;
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    gap:24px;
-    max-width:1200px;
+    display:flex;
+    flex-direction:column;
+    gap:40px;
+    max-width:1100px;
     margin:0 auto;
   }
 
   .skill-card{
-    background:var(--black-2);
-    border:1px solid rgba(255,255,255,0.07);
-    border-radius:14px;
-    padding:26px 22px;
-    transition:border-color .25s ease, transform .25s ease;
-  }
-
-  .skill-card:hover{
-    border-color:rgba(200,16,46,0.5);
-    transform:translateY(-4px);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:26px;
   }
 
   .skill-card-title{
@@ -177,50 +171,59 @@
     letter-spacing:2px;
     text-transform:uppercase;
     color:var(--red);
-    margin-bottom:18px;
+    text-align:center;
   }
 
   .skill-list{
     list-style:none;
     display:flex;
-    flex-direction:column;
-    gap:14px;
+    flex-direction:row;
+    flex-wrap:wrap;
+    align-items:flex-start;
+    justify-content:center;
+    gap:56px 88px;
   }
 
   .skill-list li{
     display:flex;
+    flex-direction:column;
     align-items:center;
     gap:12px;
-    font-size:15px;
-    font-weight:500;
-    color:#fff;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.5px;
+    text-transform:uppercase;
+    color:var(--text-muted);
+    min-width:84px;
+    text-align:center;
   }
 
   .skill-icon{
-    width:32px;
-    height:32px;
-    min-width:32px;
-    border-radius:8px;
-    background:rgba(200,16,46,0.12);
+    width:44px;
+    height:44px;
+    min-width:44px;
     display:flex;
     align-items:center;
     justify-content:center;
+    background:rgba(255,255,255,0.06);
+    border-radius:12px;
   }
 
   .skill-icon svg{
-    width:18px;
-    height:18px;
+    width:26px;
+    height:26px;
     stroke:var(--red);
     fill:none;
   }
 
-  @media (max-width:1024px){
-    .skills{ padding:50px 40px 60px; }
-    .skills-grid{ grid-template-columns:repeat(2, 1fr); }
+  .skill-icon img{
+    width:26px;
+    height:26px;
+    object-fit:contain;
   }
 
-  @media (max-width:560px){
-    .skills-grid{ grid-template-columns:1fr; }
+  @media (max-width:768px){
+    .skills{ padding:50px 24px 60px; }
   }
 
   /* diagonal red line pattern background */
@@ -1009,19 +1012,19 @@
       <ul class="skill-list">
         <li>
           <span class="skill-icon">
-            <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3l1.6 17L12 22l6.4-2L20 3H4z"/><path d="M8 7h8l-.4 4H8.6L9 15l3 1 3-1 .2-2"/></svg>
+            <img src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML5" loading="lazy">
           </span>
           HTML5
         </li>
         <li>
           <span class="skill-icon">
-            <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3l1.6 17L12 22l6.4-2L20 3H4z"/><path d="M16 7H8l.3 3.5H15l-.4 4.5-2.6.8-2.6-.8-.2-2"/></svg>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" loading="lazy">
           </span>
           CSS3
         </li>
         <li>
           <span class="skill-icon">
-            <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 16.5c.6.8 1.4 1.3 2.4 1.3 1.3 0 2-.6 2-1.6 0-2.4-4.6-1.6-4.6-4.5 0-1.4 1.1-2.3 2.6-2.3 1 0 1.8.4 2.4 1"/></svg>
+            <img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JavaScript" loading="lazy">
           </span>
           JavaScript
         </li>
@@ -1033,25 +1036,19 @@
       <ul class="skill-list">
         <li>
           <span class="skill-icon">
-            <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>
+            <img src="https://cdn.simpleicons.org/php/777BB4" alt="PHP" loading="lazy">
           </span>
           PHP
         </li>
         <li>
           <span class="skill-icon">
-            <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 5v10l-9 5-9-5V7l9-5z"/><path d="M12 12l9-5M12 12v10M12 12L3 7"/></svg>
+            <img src="https://cdn.simpleicons.org/laravel/FF2D20" alt="Laravel" loading="lazy">
           </span>
           Laravel
         </li>
         <li>
           <span class="skill-icon">
-            <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4.6v10.8L12 22l-8-4.6V6.6L12 2z"/><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg>
-          </span>
-          Node.js
-        </li>
-        <li>
-          <span class="skill-icon">
-            <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
+            <img src="https://cdn.simpleicons.org/mysql/4479A1" alt="MySQL" loading="lazy">
           </span>
           MySQL
         </li>
@@ -1063,19 +1060,19 @@
       <ul class="skill-list">
         <li>
           <span class="skill-icon">
-            <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="12" r="3"/><path d="M6 9v6M8.5 7.5L15.5 10.5M8.5 16.5L15.5 13.5"/></svg>
+            <img src="https://cdn.simpleicons.org/git/F05032" alt="Git" loading="lazy">
           </span>
           Git &amp; GitHub
         </li>
         <li>
           <span class="skill-icon">
-            <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13c1-3 3-4 5-4s3 1 4 2 2 2 4 2 4-1 5-4"/><rect x="2" y="13" width="20" height="6" rx="2"/></svg>
+            <img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker" loading="lazy">
           </span>
           Docker
         </li>
         <li>
           <span class="skill-icon">
-            <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg" alt="VS Code" loading="lazy">
           </span>
           VS Code
         </li>
@@ -1099,13 +1096,13 @@
         </li>
         <li>
           <span class="skill-icon">
-            <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-9.5-9C.7 8.2 2.5 4 6.5 4c2 0 3.3 1.1 5.5 3.5C14.2 5.1 15.5 4 17.5 4 21.5 4 23.3 8.2 21.5 12 19 16.5 12 21 12 21z"/></svg>
+            <img src="https://cdn.simpleicons.org/googlemaps/4285F4" alt="Google Maps API" loading="lazy">
           </span>
           Google Maps API
         </li>
         <li>
           <span class="skill-icon">
-            <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>
+            <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><circle cx="12" cy="15.5" r="1.4" fill="var(--red)" stroke="none"/></svg>
           </span>
           Auth &amp; JWT
         </li>
