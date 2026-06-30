@@ -632,7 +632,13 @@
   }
 
   @media (max-width:520px){
-    .project-grid{grid-template-columns:1fr; max-width:340px;}
+    .project-grid{grid-template-columns:1fr; max-width:340px; gap:36px;}
+    .project-card{display:flex; flex-direction:column;}
+    .project-thumb{height:140px;}
+    .project-body{padding:14px 4px 0; display:flex; flex-direction:column;}
+    .project-desc{-webkit-line-clamp:3; min-height:4.65em; margin-bottom:14px;}
+    .project-link{margin-top:auto;}
+    .projects-head[style*="margin-top:60px"]{margin-top:36px !important;}
   }
 
   /* Education & Experience section */
@@ -1189,10 +1195,10 @@
     <div class="about-title">Get to Know <span class="highlight">Me</span></div>
     <div class="about-divider"></div>
     <p class="about-text">
-      I'm <strong>Dhanush Sanju</strong>, a Web Developer who loves turning ideas into clean,
-      functional digital experiences. I enjoy working with <strong>JavaScript, PHP, Laravel</strong>
-      and <strong>Node.js</strong>, building everything from sleek front-end interfaces to robust
-      backend systems. Lately, I've been diving deeper into <strong>AI-driven development</strong>
+      I'm Dhanush Sanju, a Web Developer who loves turning ideas into clean,
+      functional digital experiences. I enjoy working with JavaScript, PHP, Laravel
+      and Node.js, building everything from sleek front-end interfaces to robust
+      backend systems. Lately, I've been diving deeper into AI-driven development
       and modern API integrations, always looking for smarter ways to build. My goal is to grow into
       a versatile full-stack developer who creates impactful, user-focused products — while
       continuously learning, experimenting, and pushing the boundaries of what code can do.
