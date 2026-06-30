@@ -13,6 +13,14 @@
     --black-2:#0a0a0a;
     --text-muted:#b9b9b9;
   }
+  html{
+    scroll-behavior:smooth;
+  }
+
+  section, footer{
+    scroll-margin-top:70px;
+  }
+
   *{margin:0;padding:0;box-sizing:border-box;}
   body{
     font-family:'Plus Jakarta Sans', sans-serif;
@@ -23,7 +31,7 @@
 
   .hero{
     position:relative;
-    min-height:100vh;
+    min-height:calc(100vh - 64px);
     display:grid;
     grid-template-columns:1fr 1fr;
     align-items:center;
@@ -459,31 +467,31 @@
     position:relative;
     z-index:2;
     display:grid;
-    grid-template-columns:repeat(2, 1fr);
-    gap:22px;
-    max-width:880px;
+    grid-template-columns:repeat(3, 1fr);
+    gap:18px;
+    max-width:980px;
     margin:0 auto;
   }
 
   .project-card{
     position:relative;
-    background:var(--black-2);
-    border:1px solid rgba(255,255,255,0.07);
-    border-radius:12px;
+    background:transparent;
+    border:none;
+    border-radius:10px;
     overflow:hidden;
-    transition:border-color .3s ease, transform .3s ease;
+    transition:transform .3s ease;
   }
 
   .project-card:hover{
-    border-color:rgba(200,16,46,0.5);
-    transform:translateY(-5px);
+    transform:translateY(-4px);
   }
 
   .project-thumb{
     position:relative;
     width:100%;
-    height:175px;
+    height:120px;
     overflow:hidden;
+    border-radius:10px;
   }
 
   .project-thumb img{
@@ -526,23 +534,27 @@
   .project-body{
     position:relative;
     z-index:2;
-    padding:18px 19px 20px;
+    padding:14px 4px 6px;
   }
 
   .project-name{
     font-family:'Sora', sans-serif;
-    font-size:16px;
+    font-size:14px;
     font-weight:700;
     color:#fff;
     letter-spacing:-0.1px;
-    margin-bottom:8px;
+    margin-bottom:6px;
   }
 
   .project-desc{
-    font-size:13px;
-    line-height:1.65;
+    font-size:12px;
+    line-height:1.55;
     color:var(--text-muted);
-    margin-bottom:14px;
+    margin-bottom:10px;
+    display:-webkit-box;
+    -webkit-line-clamp:3;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
   }
 
   .project-link{
@@ -575,7 +587,7 @@
     transform:translateX(2px);
   }
 
-  @media (max-width:1024px){
+  @media (max-width:760px){
     .project-grid{grid-template-columns:repeat(2, 1fr);}
   }
 
@@ -584,8 +596,8 @@
     .projects-title{font-size:28px;}
   }
 
-  @media (max-width:560px){
-    .project-grid{grid-template-columns:1fr;}
+  @media (max-width:520px){
+    .project-grid{grid-template-columns:1fr; max-width:340px;}
   }
 
   /* Education & Experience section */
@@ -921,11 +933,198 @@
       transition:none;
     }
   }
+
+  /* Navbar */
+  .navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:100;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 90px;
+    background:transparent;
+    transition:background .3s ease, padding .3s ease;
+  }
+
+  .navbar.scrolled{
+    background:rgba(0,0,0,0.75);
+    padding:12px 90px;
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+  }
+
+  .nav-brand{
+    font-family:'Sora', sans-serif;
+    font-weight:800;
+    font-size:18px;
+    color:#fff;
+    text-decoration:none;
+    letter-spacing:-0.2px;
+  }
+
+  .nav-brand span{
+    color:var(--red);
+  }
+
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:34px;
+    list-style:none;
+  }
+
+  .nav-links a{
+    font-family:'Sora', sans-serif;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.3px;
+    color:var(--text-muted);
+    text-decoration:none;
+    position:relative;
+    padding-bottom:4px;
+    transition:color .25s ease;
+  }
+
+  .nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:0;
+    height:2px;
+    background:var(--red);
+    transition:width .25s ease;
+  }
+
+  .nav-links a:hover{
+    color:#fff;
+  }
+
+  .nav-links a:hover::after,
+  .nav-links a.active::after{
+    width:100%;
+  }
+
+  .nav-links a.active{
+    color:#fff;
+  }
+
+  .nav-cta{
+    font-family:'Sora', sans-serif;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.3px;
+    color:var(--red);
+    text-decoration:none;
+    background:none;
+    padding:0 0 4px;
+    position:relative;
+    transition:color .25s ease;
+  }
+
+  .nav-cta::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:0;
+    height:2px;
+    background:var(--red);
+    transition:width .25s ease;
+  }
+
+  .nav-cta:hover{
+    color:#fff;
+  }
+
+  .nav-cta:hover::after{
+    width:100%;
+  }
+
+  .nav-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:4px;
+  }
+
+  .nav-toggle span{
+    width:24px;
+    height:2px;
+    background:#fff;
+    display:block;
+    border-radius:2px;
+    transition:transform .25s ease, opacity .25s ease;
+  }
+
+  .nav-toggle.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2){ opacity:0; }
+  .nav-toggle.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+  body{ padding-top:64px; }
+
+  @media (max-width:900px){
+    .navbar{ padding:16px 24px; }
+    .navbar.scrolled{ padding:12px 24px; }
+    .nav-links{
+      position:fixed;
+      top:64px;
+      left:0;
+      width:100%;
+      background:rgba(0,0,0,0.96);
+      flex-direction:column;
+      align-items:flex-start;
+      gap:0;
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .35s ease;
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+    .nav-links.open{
+      max-height:420px;
+    }
+    .nav-links li{
+      width:100%;
+    }
+    .nav-links a{
+      display:block;
+      width:100%;
+      padding:16px 24px;
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+    .nav-cta{
+      margin:16px 24px 20px;
+      display:inline-block;
+    }
+    .nav-toggle{ display:flex; }
+  }
 </style>
 </head>
 <body>
 
-<section class="hero">
+<nav class="navbar" id="navbar">
+  <a href="#home" class="nav-brand">Dhanush <span>Sanju</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#journey">Journey</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section class="hero" id="home">
 
   <div class="hero-content fade-up">
     <span class="eyebrow">Hello</span>
@@ -949,7 +1148,7 @@
 
 </section>
 
-<section class="about">
+<section class="about" id="about">
   <div class="about-wrap fade-up">
     <span class="eyebrow">ABOUT ME</span>
     <div class="about-title">Get to Know <span class="highlight">Me</span></div>
@@ -966,7 +1165,7 @@
   </div>
 </section>
 
-<section class="services">
+<section class="services" id="services">
   <div class="services-grid">
 
     <div class="service-item fade-up">
@@ -1017,7 +1216,7 @@
   </div>
 </section>
 
-<section class="skills">
+<section class="skills" id="skills">
   <div class="skills-head fade-up">
     <span class="eyebrow">TECH STACK</span>
     <div class="skills-title">My <span class="highlight">Skills</span> &amp; Tools</div>
@@ -1131,7 +1330,7 @@
   </div>
 </section>
 
-<section class="projects">
+<section class="projects" id="projects">
   <div class="projects-head fade-up">
     <span class="eyebrow">SELECTED WORK</span>
     <div class="projects-title">Recent <span class="highlight">Web Projects</span></div>
@@ -1190,7 +1389,7 @@
   </div>
 </section>
 
-<section class="journey">
+<section class="journey" id="journey">
   <div class="journey-head fade-up">
     <span class="eyebrow">BACKGROUND</span>
     <div class="journey-title">My <span class="highlight">Journey</span></div>
@@ -1266,7 +1465,7 @@
   </div>
 </section>
 
-<footer class="site-footer">
+<footer class="site-footer" id="contact">
   <div class="footer-container">
     <div class="footer-top fade-up">
       <span class="eyebrow footer-eyebrow">CONTACT</span>
@@ -1328,6 +1527,57 @@
     }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
 
     items.forEach(function(el){ observer.observe(el); });
+  })();
+</script>
+
+<script>
+  (function(){
+    var navbar = document.getElementById('navbar');
+    var toggle = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
+    var navAnchors = links.querySelectorAll('a');
+
+    window.addEventListener('scroll', function(){
+      if(window.scrollY > 30){
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    toggle.addEventListener('click', function(){
+      links.classList.toggle('open');
+      toggle.classList.toggle('open');
+    });
+
+    navAnchors.forEach(function(a){
+      a.addEventListener('click', function(){
+        links.classList.remove('open');
+        toggle.classList.remove('open');
+      });
+    });
+
+    var sections = [];
+    navAnchors.forEach(function(a){
+      var id = a.getAttribute('href').replace('#','');
+      var sec = document.getElementById(id);
+      if(sec){ sections.push({ id:id, el:sec, link:a }); }
+    });
+
+    if('IntersectionObserver' in window){
+      var navObserver = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          var match = sections.find(function(s){ return s.el === entry.target; });
+          if(!match) return;
+          if(entry.isIntersecting){
+            navAnchors.forEach(function(a){ a.classList.remove('active'); });
+            match.link.classList.add('active');
+          }
+        });
+      }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+      sections.forEach(function(s){ navObserver.observe(s.el); });
+    }
   })();
 </script>
 </body>
