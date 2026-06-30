@@ -103,6 +103,41 @@
     .services-grid{ grid-template-columns:1fr; }
   }
 
+  .services-head{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    margin-bottom:50px;
+  }
+
+  .services-head .eyebrow{
+    display:block;
+    text-align:center;
+  }
+
+  .services-title{
+    font-family:'Sora', sans-serif;
+    font-size:34px;
+    font-weight:800;
+    color:#fff;
+    letter-spacing:-0.5px;
+    margin-top:4px;
+  }
+
+  .services-title .highlight{
+    color:var(--red);
+  }
+
+  .services-sub{
+    margin-top:14px;
+    font-size:16px;
+    line-height:1.7;
+    color:var(--text-muted);
+    max-width:560px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
   /* Skills section */
   .skills{
     position:relative;
@@ -1166,6 +1201,11 @@
 </section>
 
 <section class="services" id="services">
+  <div class="services-head fade-up">
+    <span class="eyebrow">WHAT I DO</span>
+    <div class="services-title">My <span class="highlight">Services</span></div>
+    <p class="services-sub">A snapshot of the core areas I focus on — from designing interfaces to researching and testing every detail before it ships.</p>
+  </div>
   <div class="services-grid">
 
     <div class="service-item fade-up">
@@ -1360,7 +1400,7 @@
         <img src="car med.png" alt="Pulse analytics dashboard preview">
       </div>
       <div class="project-body">
-        <div class="project-name">Car Medics — Where Cars Get Finished, Not Just Fitted</div>
+        <div class="project-name">Car Medics — Shop</div>
         <p class="project-desc">Designed and developed a responsive business website for an automotive accessories and modification garage using HTML, CSS, and JavaScript, showcasing services, a product catalogue, and location details for a Pilathara, Kannur-based business.</p>
         <a href=" https://dhanushsanju99.github.io/car-medics/" class="project-link">
           View Case Study
@@ -1377,7 +1417,7 @@
         <img src="fashion.png" alt="Ledger finance tracker preview">
       </div>
       <div class="project-body">
-        <div class="project-name">Fashion Opticals- shop</div>
+        <div class="project-name">Fashion Opticals — Shop</div>
         <p class="project-desc">a modern eyewear site for Pilathara, Kannur, built with HTML, CSS, and JavaScript in a responsive single-page interface.</p>
         <a href="https://dhanushsanju99.github.io/Fashion/" class="project-link">
           View Case Study
